@@ -19,8 +19,4 @@ public class Comment
         return _text;
     }
 
-    public string GetCommentInfo()
-    {
-        return $"{_author}: {_text}";
-    }
 }

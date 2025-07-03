@@ -1,20 +1,20 @@
+using System.Configuration.Assemblies;
+
 public class Video
 {
     private string _title;
     private string _author;
-    private int _length; // Length in seconds
+    private int _length;
+    private List<Comment> _comments;
 
-    public comment(List<string> comments)
-    {
-        _comments = comments;
-    }
-
-    public Video(string title, string author, int length)
+    public Video(string title, string author, int length, List<Comment> comments)
     {
         _title = title;
         _author = author;
         _length = length;
+        _comments = comments;
     }
+
     public string GetTitle()
     {
         return _title;
@@ -27,12 +27,21 @@ public class Video
     {
         return _length;
     }
-    public string GetVideoInfo()
+
+    public void AddComment(Comment comment)
     {
-        return $"{_title} by {_author}, Length: {_length} seconds";
+        _comments.Add(comment);
     }
-    public int numberofcomments()
+    public List<Comment> GetComments()
+    {
+        return _comments;
+    }
+    public int GetCommentCount()
     {
         return _comments.Count;
+    }
+    public string DisplayVideo()
+    {
+        return $"{_title} by {_author}, Duration: {_length} seconds";
     }
 }
