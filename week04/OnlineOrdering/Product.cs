@@ -2,11 +2,10 @@ public class Product
 {
     private string _name;
     private string _productId;
-    private decimal _price;
-
+    private double _price;
     private int _quantity;
 
-    public Product(string name, string productId, decimal price, int quantity)
+    public Product(string name, string productId, double price, int quantity)
     {
         _name = name;
         _productId = productId;
@@ -14,28 +13,12 @@ public class Product
         _quantity = quantity;
     }
 
-    public string GetName()
+    public double GetTotalCost()
     {
-        return _name;
+        return _price * _quantity;
     }
-
-    public string GetProductId()
+    public string GetPackingLabel()
     {
-        return _productId;
-    }
-
-    public decimal GetPrice()
-    {
-        return _price;
-    }
-
-    public int GetQuantity()
-    {
-        return _quantity;
-    }
-
-    public string GetProductInfo()
-    {
-        return $"{_name} ({_productId}): ${_price:F2} - Quantity: {_quantity}";
+        return $"{_name} (ID:{_productId})";
     }
 }

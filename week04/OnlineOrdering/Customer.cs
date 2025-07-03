@@ -1,24 +1,25 @@
 public class Customer
 {
     private string _name;
-    private class Address
+    private Address _address;
+
+    public Customer(string name, Address address)
     {
-        private string _street;
-        private string _city;
-        private string _state;
-        private string _zipCode;
+        _name = name;
+        _address = address;
+    }
+    public string GetName()
+    {
+        return _name;
+    }
 
-        public Address(string street, string city, string state, string zipCode)
-        {
-            _street = street;
-            _city = city;
-            _state = state;
-            _zipCode = zipCode;
-        }
+    public Address GetAddress()
+    {
+        return _address;
+    }
 
-        public string GetAddressInfo()
-        {
-            return $"{_street}, {_city}, {_state} {_zipCode}";
-        }
+    public bool IsInUSA()
+    {
+        return _address.IsInUSA();
     }
 }
